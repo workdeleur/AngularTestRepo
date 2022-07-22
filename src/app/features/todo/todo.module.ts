@@ -6,7 +6,7 @@ import { TodoComponent } from './todo.component';
 import { ListeComponent } from './liste/liste.component';
 import { DetailsComponent } from './details/details.component';
 import { AjoutComponent } from './ajout/ajout.component';
-
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { AjoutComponent } from './ajout/ajout.component';
   ],
   imports: [
     CommonModule,
-    TodoRoutingModule
+    TodoRoutingModule,
+    MatListModule
   ]
 })
 export class TodoModule { }

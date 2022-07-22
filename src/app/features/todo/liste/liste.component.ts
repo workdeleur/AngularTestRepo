@@ -1,32 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoDataService } from 'src/app/shared/services/todo-data.service';
 
 @Component({
   selector: 'app-liste',
   templateUrl: './liste.component.html',
-  styleUrls: ['./liste.component.scss']
+  styleUrls: ['./liste.component.scss'],
 })
 export class ListeComponent implements OnInit {
+  toto:string = "http://google.fr";
+  constructor(private todoSrv: TodoDataService) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-
-
+  ngOnInit(): void {}
+  toDoList: string[] = this.todoSrv.getTodoItem().map((x) => x.titre);
 }
-
-
-/*
-import {Component} from '@angular/core';
-
- @Component({
-  selector: 'list-single-selection-example',
-  styleUrls: ['list-single-selection-example.css'],
-  templateUrl: 'list-single-selection-example.html',
-})
-export class ListSingleSelectionExample {
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-}
-
-*/

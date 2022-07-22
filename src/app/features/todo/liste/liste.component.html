@@ -1,1 +1,6 @@
-<p>liste works!</p>
+<mat-selection-list #toDoItems [multiple]="false">
+  <mat-list-option *ngFor="let toDoItem of toDoList" [value]="toDoItem">
+    {{toDoItem}}
+  </mat-list-option>
+</mat-selection-list>
+
