@@ -3,22 +3,21 @@ import { CommonModule } from '@angular/common';
 
 import { TodoRoutingModule } from './todo-routing.module';
 import { TodoComponent } from './todo.component';
-import { ListeComponent } from './liste/liste.component';
-import { DetailsComponent } from './details/details.component';
-import { AjoutComponent } from './ajout/ajout.component';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+import { ListeComponent } from './pages/liste/liste.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { AjoutComponent } from './pages/ajout/ajout.component';
+import { ItemlistComponent } from './Components/itemlist/itemlist.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     TodoComponent,
     ListeComponent,
-    DetailsComponent,
-    AjoutComponent
+    //DetailsComponent,
+    AjoutComponent,
+    ItemlistComponent,
   ],
-  imports: [
-    CommonModule,
-    TodoRoutingModule,
-    MatListModule
-  ]
+  imports: [CommonModule, TodoRoutingModule, MatListModule],
 })
-export class TodoModule { }
+export class TodoModule {}

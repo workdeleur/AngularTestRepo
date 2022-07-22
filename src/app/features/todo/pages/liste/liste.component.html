@@ -1,0 +1,6 @@
+<mat-selection-list #toDoItems [multiple]="false" (selectionChange) = selectedItem($event)>
+  <mat-list-option *ngFor="let toDoItem of toDoList | async" [value]="toDoItem">
+    {{toDoItem}}
+  </mat-list-option>
+</mat-selection-list>
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSelectionListChange } from '@angular/material/list';
 import { TodoDataService } from 'src/app/shared/services/todo-data.service';
 
 @Component({
@@ -11,5 +12,9 @@ export class ListeComponent implements OnInit {
   constructor(private todoSrv: TodoDataService) {}
 
   ngOnInit(): void {}
-  toDoList: string[] = this.todoSrv.getTodoItem().map((x) => x.titre);
+  toDoList = this.todoSrv.getTodoItems();
+
+  selectedItem(event : MatSelectionListChange){
+
+  }
 }
