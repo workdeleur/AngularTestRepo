@@ -1,3 +1,4 @@
-<button mat-raised-button color="primary" (click)="btnClick('Je clique')">
-  Primary
-</button>
+<ng-container *ngIf="obs$ | async as item">
+  <h1>Detail works</h1>
+  {{ item | json }}
+</ng-container>

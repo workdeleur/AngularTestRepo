@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DetailsComponent } from './pages/details/details.component';
 import { ListeComponent } from './pages/liste/liste.component';
 import { TodoComponent } from './todo.component';
 
@@ -8,7 +9,10 @@ const routes: Routes = [
   {
     path: '',
     component: TodoComponent,
-    children: [{ path: 'liste', component: ListeComponent }],
+    children: [
+      { path: 'liste', component: ListeComponent },
+      { path: 'liste/:id', component: DetailsComponent },
+    ],
   },
 ];
 

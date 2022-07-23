@@ -1,23 +1,28 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { ActivatedRoute, Route } from '@angular/router';
+import { mergeMap, take } from 'rxjs';
 import { TodoItem } from 'src/app/shared/models/todoItem';
+import { TodoDataService } from 'src/app/shared/services/todo-data.service';
 
 @Component({
-  standalone: true,
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
-  imports: [MatButtonModule],
 })
 export class DetailsComponent implements OnInit {
-  @Input() btnText: string = '';
-  @Output() clickOnButton = new EventEmitter<string>();
+  item: TodoItem | null = null;
+  obs$ = this.route.paramMap.pipe(
+    mergeMap((param) =>
+      this.todoDataService.getTodoItem(parseInt(param.get('id') || '0'))
+    )
+  );
+  constructor(
+    private route: ActivatedRoute,
+    private todoDataService: TodoDataService
+  ) {}
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  btnClick(text: string) {
-    this.clickOnButton.emit(text);
+  ngOnInit(): void {
+  
   }
 }
